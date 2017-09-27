@@ -1,0 +1,31 @@
+<beans>
+
+    <!--  .... -->
+
+    <broker>
+
+        <!--  .... -->
+
+        <destinationPolicy>
+            <policyMap>
+
+                <!--  .... -->
+
+                <policyEntries>
+
+                    <!-- enable priority messages by adding prioritizedMessages="true" to all queue queue=">" -->
+                    <policyEntry queue=">" prioritizedMessages="true">
+                        <!--  .... -->
+                    </policyEntry>
+
+                    <!--  .... -->
+
+                </policyEntries>
+
+                <!--  .... -->
+
+            </policyMap>
+        </destinationPolicy>
+
+    </broker>
+</beans>

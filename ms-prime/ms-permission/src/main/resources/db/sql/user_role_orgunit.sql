@@ -1,0 +1,71 @@
+INSERT INTO POSITION (id, name) VALUES (-1, 'default_position');
+
+INSERT INTO role VALUES (-1, 'DEPOT_ENGINEER', 'depot engineer');
+INSERT INTO role VALUES (-2, 'CHIEF_DEPOT_ENGINEER', 'chief depot engineer');
+INSERT INTO role VALUES (-3, 'BRANCH_ENGINEER', 'branch engineer');
+INSERT INTO role VALUES (-4, 'CHIEF_BRANCH_ENGINEER', 'chief branch engineer');
+INSERT INTO role VALUES (-5, 'MANAGEMENT_OF_TECHNICAL_POLICY_EXPERT', 'management of technical policy expert');
+INSERT INTO role VALUES (-6, 'MANAGEMENT_OF_TECHNICAL_POLICY_HEAD', 'management of technical policy head');
+INSERT INTO role VALUES (-7, 'USER_CZDR', 'user czdr');
+INSERT INTO role VALUES (-8, 'ADMINISTRATOR', 'administrator');
+INSERT INTO role VALUES (-9, 'ADMINISTRATOR_NSI', 'administrator nsi');
+INSERT INTO role VALUES (-10, 'SUPER_ADMINISTRATOR', 'super administrator');
+
+INSERT INTO org_unit VALUES (123611, 'qwerty1"', NULL, 'CENTRAL', NULL, 'DOFPC', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000222, 'qwerty2', NULL, 'BRANCH', 123611, 'DOFPC01', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000223, 'qwerty3', NULL, 'BRANCH', 123611, 'DOFPC10', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000224, 'qwerty4', NULL, 'BRANCH', 123611, 'DOFPC17', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000225, 'qwerty5', NULL, 'BRANCH', 123611, 'DOFPC24', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000226, 'qwerty6', NULL, 'BRANCH', 123611, 'DOFPC28', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000227, 'qwerty7', NULL, 'BRANCH', 123611, 'DOFPC51', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000228, 'qwerty8', NULL, 'BRANCH', 123611, 'DOFPC58', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000229, 'qwerty9', NULL, 'BRANCH', 123611, 'DOFPC61', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000230, 'qwerty10', NULL, 'BRANCH', 123611, 'DOFPC63', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000231, 'qwerty11', NULL, 'BRANCH', 123611, 'DOFPC76', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000232, 'qwerty12', NULL, 'BRANCH', 123611, 'DOFPC80', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000233, 'qwerty13', NULL, 'BRANCH', 123611, 'DOFPC83', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000234, 'qwerty14', NULL, 'BRANCH', 123611, 'DOFPC88', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000235, 'qwerty15', NULL, 'BRANCH', 123611, 'DOFPC92', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000236, 'qwerty16', NULL, 'BRANCH', 123611, 'DOFPC94', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69000237, 'qwerty17', NULL, 'BRANCH', 123611, 'DOFPC96', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004799, 'qwerty18', NULL, 'DEPOT', 69000222, 'DOFL21П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004863, 'qwerty19', NULL, 'DEPOT', 69000222, 'DOFL22П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004890, 'qwerty20', NULL, 'DEPOT', 69000222, 'DOFL24П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004902, 'qwerty21', NULL, 'DEPOT', 69000222, 'DOFL25П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004912, 'qwerty22', NULL, 'DEPOT', 69000222, 'DOFL26П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69004997, 'qwerty23', NULL, 'DEPOT', 69000222, 'DOFL28П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69005024, 'qwerty24', NULL, 'DEPOT', 69000222, 'DOFL29П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69005097, 'qwerty25', NULL, 'DEPOT', 69000222, 'DOFL23П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69005142, 'qwerty26', NULL, 'DEPOT', 69000222, 'DOFL30П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69010055, 'qwerty27', NULL, 'DEPOT', 69000222, 'DOFL33П', '2014-11-13 15:53:55.656', NULL, NULL);
+INSERT INTO org_unit VALUES (69007075, 'qwerty28', NULL, 'DEPOT', 69000222, 'DOFL32П', '2014-11-13 15:53:55.656', NULL, NULL);
+
+INSERT INTO "user" VALUES (-1, 'user_1', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_1', NULL, 'last_name_1', 'user_1@test.com', 69004799, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-2, 'user_2', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_2', NULL, 'last_name_2', 'user_2@test.com', 69004799, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-3, 'user_3', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_3', NULL, 'last_name_3', 'user_3@test.com', 69000222, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-4, 'user_4', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_4', NULL, 'last_name_4', 'user_4@test.com', 69000222, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-5, 'user_5', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_5', NULL, 'last_name_5', 'user_5@test.com', 123611, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-6, 'user_6', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_6', NULL, 'last_name_6', 'user_6@test.com', 123611, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-7, 'user_7', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_7', NULL, 'last_name_7', 'user_7@test.com', 123611, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-8, 'user_8', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'first_name_8', NULL, 'last_name_8', 'user_8@test.com', 69004799, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+INSERT INTO "user" VALUES (-9, 'colibri', '$2a$12$Djorq9mGQjL4cjr8iNID3e9xNdI8wzoc27vXt6MOD4RWY69fp46Ee', true, true, true, true, 'default_first_name', NULL, 'default_last_name', 'super_admin@test.com', 123611, -1, NULL, NULL, '2014-01-01 00:00:00.000', NULL, NULL);
+
+INSERT INTO user_role VALUES (-1, -1, -1);
+INSERT INTO user_role VALUES (-2, -2, -2);
+INSERT INTO user_role VALUES (-3, -3, -3);
+INSERT INTO user_role VALUES (-4, -4, -4);
+INSERT INTO user_role VALUES (-5, -5, -5);
+INSERT INTO user_role VALUES (-6, -6, -6);
+INSERT INTO user_role VALUES (-7, -7, -7);
+INSERT INTO user_role VALUES (-8, -8, -8);
+INSERT INTO user_role VALUES (-9, -9, -10);
+
+INSERT INTO "permission" VALUES (-1, 'READ');
+INSERT INTO "permission" VALUES (-2, 'WRITE');
+INSERT INTO "permission" VALUES (-3, 'UPDATE');
+INSERT INTO "permission" VALUES (-4, 'DELETE');
+
+INSERT INTO "role_permission" VALUES (-1, -8, -1);
+INSERT INTO "role_permission" VALUES (-2, -8, -2);
+INSERT INTO "role_permission" VALUES (-3, -8, -3);
+INSERT INTO "role_permission" VALUES (-4, -8, -4);

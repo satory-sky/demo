@@ -1,0 +1,1 @@
+login: POST http://localhost:8080/sso-flow/session?j_username=colibri&j_password=1234

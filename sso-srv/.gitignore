@@ -1,0 +1,22 @@
+/protoc.exe
+/*.iml
+/*.log
+/target/
+.idea/
+.gradle/
+gradle/
+/classes/
+#**/generated/
+build/
+
+# IntelliJ IDEA project files
+**/.idea/
+*.iml
+*.iws
+*.tar.gz
+
+**/.classpath
+**/.project
+**/.settings
+**/test-output
+**/target/

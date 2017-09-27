@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <property name="type.varchar" value="varchar" dbms="postgresql"/>
+    <property name="type.string" value="varchar(255)" dbms="postgresql"/>
+    <property name="type.long" value="bigint" dbms="postgresql"/>
+    <property name="type.integer" value="integer" dbms="postgresql"/>
+    <property name="type.date" value="date" dbms="postgresql"/>
+    <property name="type.boolean" value="boolean"/>
+    <property name="type.time" value="time" dbms="postgresql"/>
+    <property name="type.timestamp" value="timestamp" dbms="postgresql"/>
+    <property name="type.double" value="double" dbms="postgresql"/>
+
+    <changeSet id="1" author="akontarero">
+        <createTable tableName="org_unit">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="abbreviation" type="varchar(255)"/>
+            <column name="org_unit_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" type="bigint"/>
+            <column name="code" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated" type="TIMESTAMP"/>
+            <column name="description" type="varchar(200)"/>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="org_unit_pk" tableName="org_unit"/>
+        <createSequence sequenceName="org_unit_seq"/>
+
+        <createTable tableName="position">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="position_pk" tableName="position"/>
+        <createSequence sequenceName="position_seq"/>
+        <addUniqueConstraint columnNames="name" constraintName="position_name_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="position"/>
+
+        <createTable tableName="user">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255)"/>
+            <column name="account_non_expired" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_non_locked" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="credentials_non_expired" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="middle_name" type="varchar(200)"/>
+            <column name="last_name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="org_unit_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avatar_url" type="varchar(300)"/>
+            <column name="gender" type="varchar(10)"/>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated" type="TIMESTAMP"/>
+            <column name="description" type="varchar(200)"/>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="user_pk" tableName="user"/>
+        <createSequence sequenceName="user_seq"/>
+        <addUniqueConstraint columnNames="username" constraintName="user_username_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="user"/>
+        <addUniqueConstraint columnNames="email" constraintName="user_email_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="user"/>
+        <addForeignKeyConstraint baseColumnNames="org_unit_id" baseTableName="user"
+            constraintName="fk_user_org_unit" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="org_unit"/>
+        <addForeignKeyConstraint baseColumnNames="position_id" baseTableName="user"
+            constraintName="fk_user_position" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="position"/>
+
+        <createTable tableName="role">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="role_pk" tableName="role"/>
+        <createSequence sequenceName="role_seq"/>
+        <addUniqueConstraint columnNames="name" constraintName="role_name_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="role"/>
+        <addUniqueConstraint columnNames="description" constraintName="role_description_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="role"/>
+
+        <createTable tableName="user_role">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="user_role_pk" tableName="user_role"/>
+        <createSequence sequenceName="user_role_seq"/>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role"
+            constraintName="fk_user_role_user" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user"/>
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role"
+            constraintName="fk_user_role_role" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+        <addUniqueConstraint columnNames="user_id, role_id" constraintName="user_id_role_id_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="user_role"/>
+
+        <createTable tableName="permission">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="permission_pk" tableName="permission"/>
+        <createSequence sequenceName="permission_seq"/>
+        <addUniqueConstraint columnNames="name" constraintName="permission_name_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="permission"/>
+
+        <createTable tableName="role_permission">
+            <column name="id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="permission_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="id" constraintName="role_permission_pk" tableName="role_permission"/>
+        <createSequence sequenceName="role_permission_seq"/>
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_permission"
+            constraintName="fk_role_permission_role" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+        <addForeignKeyConstraint baseColumnNames="permission_id" baseTableName="role_permission"
+            constraintName="fk_role_permission_permission" deferrable="false" initiallyDeferred="false"
+            onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="permission"/>
+        <addUniqueConstraint columnNames="role_id, permission_id" constraintName="role_id_permission_id_key" deferrable="false"
+            disabled="false" initiallyDeferred="false" tableName="role_permission"/>
+
+        <sqlFile endDelimiter="\nGO" splitStatements="true" stripComments="true" encoding="utf8"
+            path="../sql/user_role_orgunit.sql" relativeToChangelogFile="true"/>
+
+        <createTable tableName="persistent_login">
+            <column name="series" type="varchar(64)"/>
+            <column name="username" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_used" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="series" constraintName="persistent_login_pk" tableName="persistent_login"/>
+
+        <modifySql dbms="postgresql">
+            <replace replace="WITH TIME ZONE" with="WITHOUT TIME ZONE"/>
+        </modifySql>
+    </changeSet>
+
+</databaseChangeLog>

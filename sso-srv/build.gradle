@@ -1,0 +1,191 @@
+group 'com.serenity.sso'
+version '1.0-SNAPSHOT'
+
+// build a map of the dependency artifacts to use.  Allows centralized definition of the version
+// of artifacts to use.  In that respect it serves a role similar to <dependencyManagement> in Maven
+ext {
+    // Versions
+    def servletVersion = '3.0.1'
+    def validationVersion = '1.1.0.Final'
+    def javaxElVersion = '3.0.1-b04'
+    def slf4jVersion = '1.7.13'
+    def logbackVersion = '1.1.2'
+    def junitVersion = '4.11'
+    def mockitoVersion = '1.9.5'
+    def springVersion = '4.2.4.RELEASE'
+    def springSecurityVersion = '3.2.5.RELEASE'
+    def springWSVersion = '2.2.0.RELEASE'
+    def springDataJpaVersion = '1.9.2.RELEASE'
+    def quartzVersion = '1.8.5'
+    def postgresqlVersion = '9.4.1207'
+    def c3p0JdbcVersion = '0.9.1.2'
+    def tomcatJdbcVersion = '8.0.30'
+    def liquibaseCoreVersion = '3.4.2'
+    def commonsCodecVersion = '1.9'
+    def commonsLangVersion = '2.6'
+    def commonsConfigVersion = '1.9'
+    def commonsHttpClient = '3.1'
+    def jacksonVersion = '2.2.1'
+    def codeGsonVersion = '2.2.4'
+    def hibernateJpaVersion = '1.0.0.Final'
+    def hibernateValidatorVersion = '5.2.2.Final'
+    def hibernateCoreVersion = '5.0.7.Final'
+    def hibernateToolVersion = '5.0.0.Alpha1'
+    def activemqVersion = '5.10.0'
+    def httpClientVersion = '4.3.5'
+    def corsFilterVersion = '1.7.1'
+    def commonsFileuploadVersion = '1.3.1'
+    def poiVersion = '3.9'
+    def jodaTimeVersion = '2.3'
+    def orikaCoreVersion = '1.4.5';
+
+    libraries = [
+    // Core
+            servlet:                 "javax.servlet:javax.servlet-api:${servletVersion}",
+            validation:              "javax.validation:validation-api:${validationVersion}",
+            javax_el:                "javax.el:javax.el-api:${javaxElVersion}",
+    // slf4j
+            slf4j_api:               "org.slf4j:slf4j-api:${slf4jVersion}",
+            jcl_over_slf4j:          "org.slf4j:jcl-over-slf4j:${slf4jVersion}",
+            log4j_over_slf4j:        "org.slf4j:log4j-over-slf4j:${slf4jVersion}",
+    // Logback
+            logback_classic:         "ch.qos.logback:logback-classic:${logbackVersion}",
+            logback_core:            "ch.qos.logback:logback-core:${logbackVersion}",
+    // Spring framework
+            spring_beans:            "org.springframework:spring-beans:${springVersion}",
+            spring_context:          "org.springframework:spring-context:${springVersion}",
+            spring_core:             "org.springframework:spring-core:${springVersion}",
+            spring_security_web:     "org.springframework.security:spring-security-web:${springSecurityVersion}",
+            spring_security_config:  "org.springframework.security:spring-security-config:${springSecurityVersion}",
+            spring_security_ldap:    "org.springframework.security:spring-security-ldap:${springSecurityVersion}",
+            spring_jdbc:             "org.springframework:spring-jdbc:${springVersion}",
+            spring_web:              "org.springframework:spring-web:${springVersion}",
+            spring_webmvc:           "org.springframework:spring-webmvc:${springVersion}",
+            spring_jms:              "org.springframework:spring-jms:${springVersion}",
+            spring_oxm:              "org.springframework:spring-oxm:${springVersion}",
+            spring_ws:               "org.springframework.ws:spring-ws-core:${springWSVersion}",
+            spring_data_jpa:         "org.springframework.data:spring-data-jpa:${springDataJpaVersion}",
+            spring_orm:              "org.springframework:spring-orm:${springVersion}",
+    // Jackson
+            jackson_core:            "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}",
+            jackson_databind:        "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
+            jackson_annotations:     "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}",
+    // Gson
+            code_gson:               "com.google.code.gson:gson:${codeGsonVersion}",
+    // Utils
+            quartz:                  "org.quartz-scheduler:quartz:${quartzVersion}",
+            commons_codec:           "commons-codec:commons-codec:${commonsCodecVersion}",
+            commons_lang:            "commons-lang:commons-lang:${commonsLangVersion}",
+            commons_config:          "commons-configuration:commons-configuration:${commonsConfigVersion}",
+            commons_httpclient:      "commons-httpclient:commons-httpclient:${commonsHttpClient}",
+            guava:                   "com.google.guava:guava:17.0",
+    // Database
+            postgresql:              "org.postgresql:postgresql:${postgresqlVersion}",
+            c3p0_jdbc:               "c3p0:c3p0:${c3p0JdbcVersion}",
+            jdbc:                    "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}",
+            liquibase_core:          "org.liquibase:liquibase-core:${liquibaseCoreVersion}",
+    // Testing
+            junit:                   "junit:junit:${junitVersion}",
+            mockito:                 "org.mockito:mockito-all:${mockitoVersion}",
+            spring_test:             "org.springframework:spring-test:${springVersion}",
+    // Jtidy
+            jtidy:                   "net.sf.jtidy:jtidy:r938",
+    // Hibernate
+            hibernate_jpa:           "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:${hibernateJpaVersion}",
+            hibernate_validator:     "org.hibernate:hibernate-validator:${hibernateValidatorVersion}",
+            hibernate_core:          "org.hibernate:hibernate-core:${hibernateCoreVersion}",
+            hibernate_entitymanager: "org.hibernate:hibernate-entitymanager:${hibernateCoreVersion}",
+            hibernate_ehcache:       "org.hibernate:hibernate-ehcache:${hibernateCoreVersion}",
+            hibernate_tools:         "org.hibernate:hibernate-tools:${hibernateToolVersion}",
+    // Activemq
+            activemq_client:         "org.apache.activemq:activemq-client:${activemqVersion}",
+            activemq_pool:           "org.apache.activemq:activemq-pool:${activemqVersion}",
+    // HttpClient
+            http_client:             "org.apache.httpcomponents:httpclient:${httpClientVersion}",
+            cors_filter:             "com.thetransactioncompany:cors-filter:${corsFilterVersion}",
+    // Fileupload
+            commons_fileupload:      "commons-fileupload:commons-fileupload:${commonsFileuploadVersion}",
+    // POI
+            poi:                     "org.apache.poi:poi:${poiVersion}",
+            poi_ooxml:               "org.apache.poi:poi-ooxml:${poiVersion}",
+    // joda
+            joda_time:               "joda-time:joda-time:${jodaTimeVersion}",
+    // Mapper
+            orika_core:              "ma.glasnost.orika:orika-core:${orikaCoreVersion}"
+    ]
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'idea'
+
+    compileJava.options.encoding = 'UTF-8'
+
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+
+    configurations {
+        provided
+    }
+
+    sourceSets {
+        main.compileClasspath += configurations.provided
+        main.runtimeClasspath += configurations.provided
+        test.compileClasspath += configurations.provided
+        test.runtimeClasspath += configurations.provided
+    }
+
+    idea {
+        module {
+            scopes.PROVIDED.plus += [configurations.provided]
+        }
+    }
+
+    dependencies {
+        // Logger
+        compile(
+                libraries.slf4j_api
+        )
+        runtime(
+                libraries.jcl_over_slf4j,
+                libraries.log4j_over_slf4j,
+        // Logback
+                libraries.logback_classic,
+                libraries.logback_core
+        )
+        // Testing
+        testCompile(
+                libraries.junit,
+                libraries.mockito,
+                libraries.spring_test
+        )
+        // Core
+        provided(
+                libraries.servlet
+        )
+    }
+
+    // temporary fix due:
+    // https://code.google.com/p/android/issues/detail?id=64887
+    // http://stackoverflow.com/questions/25513788/intellij-cant-find-classpath-test-resource
+    task copyTestResources(type: Copy) {
+        // from "${project(':sso-flow').projectDir}" + File.separator +
+        //         "src" + File.separator +
+        //         "main" + File.separator +
+        //         "resources"
+        from sourceSets.test.resources
+        into sourceSets.test.output.classesDir
+    }
+    processTestResources.dependsOn copyTestResources
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
+}

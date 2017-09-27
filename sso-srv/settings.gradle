@@ -1,0 +1,5 @@
+rootProject.name = 'sso-srv'
+
+include 'sso-common'
+include 'sso-flow'
+include 'sso-idm'

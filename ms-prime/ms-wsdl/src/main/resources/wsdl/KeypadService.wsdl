@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wsdl:definitions name="KeypadService" targetNamespace="http://ingdirect.com.au/soa"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+    xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+    xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+    xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+    xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:tns="http://ingdirect.com.au/soa"
+    xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+    xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+    <wsp:Policy wsu:Id="WSHttpBinding_IKeypadService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding
+                    xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="false" />
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256 />
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Strict />
+                            </wsp:Policy>
+                        </sp:Layout>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <wsaw:UsingAddressing />
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://ingdirect.com.au/soa"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response" />
+            <xs:import namespace="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Request" />
+            <xs:element name="GetPINImages">
+                <xs:complexType>
+                    <xs:sequence />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetPINImagesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="GetPINImagesResult" nillable="true" type="q1:GetPINImagesResponse"
+                            xmlns:q1="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="GetAccessiblePINs">
+                    <xs:complexType>
+                        <xs:sequence />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="GetAccessiblePINsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="GetAccessiblePINsResult" nillable="true" type="q2:GetAccessiblePINsResponse"
+                                xmlns:q2="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="GetPIN">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element minOccurs="0" name="request" nillable="true" type="q3:GetPINRequest"
+                                    xmlns:q3="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Request" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="GetPINResponse">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="GetPINResult" nillable="true" type="q4:GetPinResponse"
+                                        xmlns:q4="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:schema>
+                        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/"
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                            xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+                            <xs:element name="anyType" nillable="true" type="xs:anyType" />
+                            <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+                            <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+                            <xs:element name="boolean" nillable="true" type="xs:boolean" />
+                            <xs:element name="byte" nillable="true" type="xs:byte" />
+                            <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+                            <xs:element name="decimal" nillable="true" type="xs:decimal" />
+                            <xs:element name="double" nillable="true" type="xs:double" />
+                            <xs:element name="float" nillable="true" type="xs:float" />
+                            <xs:element name="int" nillable="true" type="xs:int" />
+                            <xs:element name="long" nillable="true" type="xs:long" />
+                            <xs:element name="QName" nillable="true" type="xs:QName" />
+                            <xs:element name="short" nillable="true" type="xs:short" />
+                            <xs:element name="string" nillable="true" type="xs:string" />
+                            <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+                            <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+                            <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+                            <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+                            <xs:element name="char" nillable="true" type="tns:char" />
+                            <xs:simpleType name="char">
+                                <xs:restriction base="xs:int" />
+                            </xs:simpleType>
+                            <xs:element name="duration" nillable="true" type="tns:duration" />
+                            <xs:simpleType name="duration">
+                                <xs:restriction base="xs:duration">
+                                    <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+                                    <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+                                    <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                            <xs:element name="guid" nillable="true" type="tns:guid" />
+                            <xs:simpleType name="guid">
+                                <xs:restriction base="xs:string">
+                                    <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+                                </xs:restriction>
+                            </xs:simpleType>
+                            <xs:attribute name="FactoryType" type="xs:QName" />
+                            <xs:attribute name="Id" type="xs:ID" />
+                            <xs:attribute name="Ref" type="xs:IDREF" />
+                        </xs:schema>
+                        <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response"
+                            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                            xmlns:tns="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Response">
+                            <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+                            <xs:complexType name="GetPINImagesResponse">
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="KeypadImages" nillable="true" type="q1:ArrayOfstring"
+                                        xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+                                        <xs:element minOccurs="0" name="PemEncryptionKey" nillable="true" type="xs:string" />
+                                        <xs:element minOccurs="0" name="Secret" nillable="true" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                                <xs:element name="GetPINImagesResponse" nillable="true" type="tns:GetPINImagesResponse" />
+                                <xs:complexType name="GetAccessiblePINsResponse">
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" name="KeypadMappings" nillable="true" type="q2:ArrayOfint"
+                                            xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+                                            <xs:element minOccurs="0" name="PemEncryptionKey" nillable="true" type="xs:string" />
+                                            <xs:element minOccurs="0" name="Secret" nillable="true" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                    <xs:element name="GetAccessiblePINsResponse" nillable="true" type="tns:GetAccessiblePINsResponse" />
+                                    <xs:complexType name="GetPinResponse">
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="DecryptionKey" nillable="true" type="xs:string" />
+                                            <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string" />
+                                            <xs:element minOccurs="0" name="SecretTimeStamp" nillable="true" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                    <xs:element name="GetPinResponse" nillable="true" type="tns:GetPinResponse" />
+                                </xs:schema>
+                                <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+                                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                    <xs:complexType name="ArrayOfstring">
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                    <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+                                    <xs:complexType name="ArrayOfint">
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                    <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+                                </xs:schema>
+                                <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Request"
+                                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:tns="http://schemas.datacontract.org/2004/07/ING.SOA.Contract.Keypad.DataContract.Request">
+                                    <xs:complexType name="GetPINRequest">
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="KeyPositions" nillable="true" type="xs:string" />
+                                            <xs:element minOccurs="0" name="Secret" nillable="true" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                    <xs:element name="GetPINRequest" nillable="true" type="tns:GetPINRequest" />
+                                </xs:schema>
+                                <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.ServiceModel"
+                                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                    xmlns:tns="http://schemas.datacontract.org/2004/07/System.ServiceModel">
+                                    <xs:import namespace="http://schemas.datacontract.org/2004/07/System" />
+                                    <xs:complexType name="FaultException">
+                                        <xs:complexContent mixed="false">
+                                            <xs:extension base="tns:CommunicationException" />
+                                        </xs:complexContent>
+                                    </xs:complexType>
+                                    <xs:element name="FaultException" nillable="true" type="tns:FaultException" />
+                                    <xs:complexType name="CommunicationException">
+                                        <xs:complexContent mixed="false">
+                                            <xs:extension base="q1:SystemException"
+                                                xmlns:q1="http://schemas.datacontract.org/2004/07/System" />
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                        <xs:element name="CommunicationException" nillable="true" type="tns:CommunicationException" />
+                                        <xs:complexType name="ArrayOfFaultException.FaultReasonData">
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" maxOccurs="unbounded" name="FaultException.FaultReasonData" nillable="true" type="tns:FaultException.FaultReasonData" />
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                        <xs:element name="ArrayOfFaultException.FaultReasonData" nillable="true" type="tns:ArrayOfFaultException.FaultReasonData" />
+                                        <xs:complexType name="FaultException.FaultReasonData">
+                                            <xs:sequence>
+                                                <xs:element name="text" nillable="true" type="xs:string" />
+                                                <xs:element name="xmlLang" nillable="true" type="xs:string" />
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                        <xs:element name="FaultException.FaultReasonData" nillable="true" type="tns:FaultException.FaultReasonData" />
+                                        <xs:complexType name="FaultException.FaultCodeData">
+                                            <xs:sequence>
+                                                <xs:element name="name" nillable="true" type="xs:string" />
+                                                <xs:element name="ns" nillable="true" type="xs:string" />
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                        <xs:element name="FaultException.FaultCodeData" nillable="true" type="tns:FaultException.FaultCodeData" />
+                                        <xs:complexType name="ArrayOfFaultException.FaultCodeData">
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" maxOccurs="unbounded" name="FaultException.FaultCodeData" nillable="true" type="tns:FaultException.FaultCodeData" />
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                        <xs:element name="ArrayOfFaultException.FaultCodeData" nillable="true" type="tns:ArrayOfFaultException.FaultCodeData" />
+                                    </xs:schema>
+                                    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System"
+                                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                        xmlns:tns="http://schemas.datacontract.org/2004/07/System"
+                                        xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+                                        <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+                                        <xs:complexType name="SystemException">
+                                            <xs:complexContent mixed="false">
+                                                <xs:extension base="tns:Exception" />
+                                            </xs:complexContent>
+                                        </xs:complexType>
+                                        <xs:element name="SystemException" nillable="true" type="tns:SystemException" />
+                                        <xs:complexType name="Exception">
+                                            <xs:sequence>
+                                                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+                                            </xs:sequence>
+                                            <xs:attribute ref="ser:FactoryType" />
+                                        </xs:complexType>
+                                        <xs:element name="Exception" nillable="true" type="tns:Exception" />
+                                    </xs:schema>
+                                </wsdl:types>
+                                <wsdl:message name="IKeypadService_GetPINImages_InputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetPINImages" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetPINImages_OutputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetPINImagesResponse" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetAccessiblePINs_InputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetAccessiblePINs" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetAccessiblePINs_OutputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetAccessiblePINsResponse" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetPIN_InputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetPIN" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetPIN_OutputMessage">
+                                    <wsdl:part name="parameters" element="tns:GetPINResponse" />
+                                </wsdl:message>
+                                <wsdl:message name="IKeypadService_GetPIN_FaultExceptionFault_FaultMessage">
+                                    <wsdl:part name="detail" element="q1:FaultException"
+                                        xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+                                    </wsdl:message>
+                                    <wsdl:portType name="IKeypadService">
+                                        <wsdl:operation name="GetPINImages">
+                                            <wsdl:input wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetPINImages" message="tns:IKeypadService_GetPINImages_InputMessage" />
+                                            <wsdl:output wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetPINImagesResponse" message="tns:IKeypadService_GetPINImages_OutputMessage" />
+                                        </wsdl:operation>
+                                        <wsdl:operation name="GetAccessiblePINs">
+                                            <wsdl:input wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetAccessiblePINs" message="tns:IKeypadService_GetAccessiblePINs_InputMessage" />
+                                            <wsdl:output wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetAccessiblePINsResponse" message="tns:IKeypadService_GetAccessiblePINs_OutputMessage" />
+                                        </wsdl:operation>
+                                        <wsdl:operation name="GetPIN">
+                                            <wsdl:input wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetPIN" message="tns:IKeypadService_GetPIN_InputMessage" />
+                                            <wsdl:output wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetPINResponse" message="tns:IKeypadService_GetPIN_OutputMessage" />
+                                            <wsdl:fault wsaw:Action="http://ingdirect.com.au/soa/IKeypadService/GetPINFaultExceptionFault" name="FaultExceptionFault" message="tns:IKeypadService_GetPIN_FaultExceptionFault_FaultMessage" />
+                                        </wsdl:operation>
+                                    </wsdl:portType>
+                                    <wsdl:binding name="WSHttpBinding_IKeypadService" type="tns:IKeypadService">
+                                        <wsp:PolicyReference URI="#WSHttpBinding_IKeypadService_policy" />
+                                        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+                                        <wsdl:operation name="GetPINImages">
+                                            <soap12:operation soapAction="http://ingdirect.com.au/soa/IKeypadService/GetPINImages" style="document" />
+                                            <wsdl:input>
+                                                <soap12:body use="literal" />
+                                            </wsdl:input>
+                                            <wsdl:output>
+                                                <soap12:body use="literal" />
+                                            </wsdl:output>
+                                        </wsdl:operation>
+                                        <wsdl:operation name="GetAccessiblePINs">
+                                            <soap12:operation soapAction="http://ingdirect.com.au/soa/IKeypadService/GetAccessiblePINs" style="document" />
+                                            <wsdl:input>
+                                                <soap12:body use="literal" />
+                                            </wsdl:input>
+                                            <wsdl:output>
+                                                <soap12:body use="literal" />
+                                            </wsdl:output>
+                                        </wsdl:operation>
+                                        <wsdl:operation name="GetPIN">
+                                            <soap12:operation soapAction="http://ingdirect.com.au/soa/IKeypadService/GetPIN" style="document" />
+                                            <wsdl:input>
+                                                <soap12:body use="literal" />
+                                            </wsdl:input>
+                                            <wsdl:output>
+                                                <soap12:body use="literal" />
+                                            </wsdl:output>
+                                            <wsdl:fault name="FaultExceptionFault">
+                                                <soap12:fault use="literal" name="FaultExceptionFault" namespace="" />
+                                            </wsdl:fault>
+                                        </wsdl:operation>
+                                    </wsdl:binding>
+                                    <wsdl:service name="KeypadService">
+                                        <wsdl:port name="WSHttpBinding_IKeypadService" binding="tns:WSHttpBinding_IKeypadService">
+                                            <soap12:address location="https://soasts/KeypadService/KeypadService.svc" />
+                                            <wsa10:EndpointReference>
+                                                <wsa10:Address>https://soasts/KeypadService/KeypadService.svc</wsa10:Address>
+                                            </wsa10:EndpointReference>
+                                        </wsdl:port>
+                                    </wsdl:service>
+                                </wsdl:definitions>

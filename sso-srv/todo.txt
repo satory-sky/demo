@@ -1,0 +1,64 @@
+- add cascade to DB
+- start id from 0 (no negative id)
+
+- left only security logic
+- isolate CORS filter in file and plug in spring security (not in AppConfig)
+- ehcache
+- hibernate "Versions" for optimistic data access
+- Hibernate technologies (http://hibernate.org/orm/downloads/):
+    hibernate-osgi
+    hibernate-envers
+    hibernate-c3p0
+    hibernate-proxool
+    hibernate-infinispan
+    hibernate-ehcache
+
+- implement Stateless Authentication with Spring Security and JWT
+    https://www.reddit.com/r/java/comments/3ivesh/completely_stateless_authorization_for_rest_api/
+    http://technicalrex.com/2015/02/20/stateless-authentication-with-spring-security-and-jwt/
+    http://blog.jdriven.com/2014/10/stateless-spring-security-part-2-stateless-authentication/
+- reorganize response object (use standard http response codes in STATUS, put detail description if it (is necessary) in json)
+- put session token to Redis
+- implement JBehave tests
+- implement JUnit tests
+
+- check new property source approach
+- "Spring Security Test" library
+
+- @JsonAutoDetect for DTO
+    @JsonIgnore
+
+- implement classic Validator (from PAS)
+
+- make audit
+    @Audited
+
+
+***********************************************
+
+
+- hibernate template pojo generation *.ftl + pojo generation annotation (not for getters but for fields)
+
+            @Basic(optional = false)
+            @Size(min = 1, max = 50)
+
+
+    http://stackoverflow.com/questions/2473866/how-to-map-oracle-timestamp-to-appropriate-java-type-in-hibernate
+    http://stackoverflow.com/questions/5713508/hibernate-reverse-engineering-to-include-a-transient-property
+    https://docs.jboss.org/tools/latest/en/hibernatetools/html/reverseengineering.html
+    https://docs.jboss.org/tools/latest/en/hibernatetools/html/codegen.html
+
+- Spring Data JPA, Hibernate
+    http://devcrumb.com/hibernate/spring-data-jpa-hibernate-maven
+    https://www.youtube.com/watch?v=YzOTZTt-PR0
+
+    - hibernate generate dao
+       http://blog.patouchas.net/technology/hibernate-dao-java-tutorial/
+       http://blog.patouchas.net/technology/java/hibernate-mapping-with-annotations/
+       http://javastudy.ru/hibernate/hibernate-quick-start/
+       http://www.nobukimi.com/?p=23
+       http://stackoverflow.com/questions/5259276/intellij-idea-10-generate-entity-pojo-from-db-model
+       https://www.jetbrains.com/idea/help/import-database-schema-import-mappings.html
+
+       http://www.codejava.net/frameworks/spring/spring-4-and-hibernate-4-integration-tutorial-part-2-java-based-configuration
+       http://websystique.com/spring/spring4-hibernate4-mysql-maven-integration-example-using-annotations/
